@@ -1,0 +1,171 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Garage Sale - Contact</title>
+  
+  <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/foundation.css' %}" />
+  <script src="{% static 'js/vendor/custom.modernizr.js' %}"></script>
+
+</head>
+<body>
+
+
+    <!-- Navigation -->
+
+      <div class="row">
+        <div class="large-12 columns">
+
+          <nav class="top-bar">
+            <ul class="title-area">
+              <!-- Title Area -->
+              <li class="name">
+                <h1>
+                  <a href="#">
+                    Contact Item: {{ item.name }}
+                  </a>
+                </h1>
+              </li>
+              <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+            </ul>
+         
+            <section class="top-bar-section">
+              <!-- Right Nav Section -->
+              <ul class="right">
+                <li class="divider"></li>
+			  {% if item.partner|length > 0 %}
+			    <li><a href="{% url 'partner-index' item.partner %}">Home</a></li>
+			  {% else %}
+                <li><a href="{% url 'index' %}">Home</a></li>
+              {% endif %}
+              </ul>
+            </section>
+          </nav>
+          <!-- End Top Bar -->
+        </div>
+      </div>
+
+    <!-- End Navigation -->
+
+
+  <!-- Main Page Content and Sidebar -->
+ 
+  <div class="row">
+ 
+    <!-- Contact Details -->
+    <div class="large-9 columns">
+ 
+      <h3>Get in Touch!</h3>
+      <p>Send us your information so we can reply you with a proper message for following your interest in this item.</p>
+ 
+      <div class="section-container auto" data-section>
+        <section class="section">
+          <h5 class="title"><a href="#panel1">Contact Us</a></h5>
+          <div class="content" data-slug="panel1">
+            <form method='POST'>{% csrf_token %}
+              <div class="row collapse">
+                <div class="large-2 columns">
+                  <label class="inline">Your Name</label>
+                </div>
+                <div class="large-10 columns">
+                  <input type="text" name='name' id="yourName" placeholder="Pepe">
+                </div>
+              </div>
+              <div class="row collapse">
+                <div class="large-2 columns">
+                  <label class="inline"> Your Email</label>
+                </div>
+                <div class="large-10 columns">
+                  <input type="text" name='email' id="yourEmail" placeholder="pepe@emailserver.com">
+                </div>
+              </div>
+              <label>Additional information</label>
+              <textarea name="question" rows="4"></textarea>
+              <button type="submit" class="radius button">Submit</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+ 
+    <!-- End Contact Details -->
+        
+  
+
+    <!-- Footer -->
+
+      <footer class="row">
+        <div class="large-12 columns"><hr />
+          <div class="row">
+
+            <div class="large-6 columns">
+              <p>This is a free website</p>
+            </div>
+
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+			  {% if item.partner|length > 0 %}
+			    <li><a href="{% url 'partner-index' item.partner %}">Home</a></li>
+			  {% else %}
+                <li><a href="{% url 'index' %}">Home</a></li>
+              {% endif %}
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </footer>
+
+    <!-- End Footer -->
+
+  
+  <script>
+  document.write('<script src=' +
+  ('__proto__' in {} ? '{% static "js/vendor/zepto" %}' : '{% static "js/vendor/jquery" %}') +
+  '.js><\/script>')
+  </script>
+  
+  <script src="{% static 'js/foundation.min.js' %}"></script>
+  <!--
+  
+  <script src="js/foundation/foundation.js"></script>
+  
+  <script src="js/foundation/foundation.alerts.js"></script>
+  
+  <script src="js/foundation/foundation.clearing.js"></script>
+  
+  <script src="js/foundation/foundation.cookie.js"></script>
+  
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  
+  <script src="js/foundation/foundation.forms.js"></script>
+  
+  <script src="js/foundation/foundation.joyride.js"></script>
+  
+  <script src="js/foundation/foundation.magellan.js"></script>
+  
+  <script src="js/foundation/foundation.orbit.js"></script>
+  
+  <script src="js/foundation/foundation.placeholder.js"></script>
+  
+  <script src="js/foundation/foundation.reveal.js"></script>
+  
+  <script src="js/foundation/foundation.section.js"></script>
+  
+  <script src="js/foundation/foundation.tooltips.js"></script>
+  
+  <script src="js/foundation/foundation.topbar.js"></script>
+  
+  -->
+  
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>
